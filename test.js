@@ -16,7 +16,7 @@ function cb(error, data) {
     console.log(JSON.stringify(data));
 }
 
-tcbmDovizKuru(cb);
+tcbmDovizKuru(cb, 'http://www.tcmb.gov.tr/kurlar/200501/17012005.xml');
 
 // FIXME
 // describe('tcbmDovizKuru', function () {

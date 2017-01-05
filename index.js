@@ -40,24 +40,19 @@ function valueProcessors(val) {
     }
 }
 
-module.exports = function(cb) {
 
-    // XML Source for Indicative Exchange Rates Announced by the Central Bank of Turkey
-    var dataSourceURL = 'http://www.tcmb.gov.tr/kurlar/today.xml';
+module.exports = function(cb, dataSourceURL = 'http://www.tcmb.gov.tr/kurlar/today.xml') { // XML Source for Indicative Exchange Rates Announced by the Central Bank of Turkey
 
     return request(dataSourceURL, (error, response, xml) => {
         if (error) {
             return cb(error, null);
         }
-
         if (response.statusCode != 200) {
             return cb('Response code is: ' + response.statusCode, null);
         }
-
         if (!xml || xml.search('Tarih_Date') === -1) {
             return cb('Invalid xml', null);
         }
-
         // converts xml to json
         parseString(xml, {
                 attrkey: 'attributes',
