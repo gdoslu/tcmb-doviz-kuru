@@ -1,6 +1,6 @@
 {
   "name": "tcmb-doviz-kuru",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Get Indicative Exchange Rates Announced by the Central Bank of Turkey",
   "main": "index.js",
   "scripts": {

@@ -42,7 +42,7 @@ function valueProcessors(val) {
     }
 }
 
-module.exports = function(cb, dataSourceURL = 'http://www.tcmb.gov.tr/kurlar/today.xml') { // XML Source for Indicative Exchange Rates Announced by the Central Bank of Turkey
+module.exports = function(cb, dataSourceURL = 'http://www.tcmb.gov.tr/kurlar/today.xml', encoding = 'UTF-8') { // XML Source for Indicative Exchange Rates Announced by the Central Bank of Turkey
 
     var options = {
         url: dataSourceURL,
@@ -51,7 +51,7 @@ module.exports = function(cb, dataSourceURL = 'http://www.tcmb.gov.tr/kurlar/tod
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.95 Safari/537.36',
             'Accept-Language': 'en-US,en;q=0.8,tr;q=0.6',
-            'Accept-Charset': 'ISO-8859-9'
+            'Accept-Charset': encoding
     },
 
     };
@@ -63,7 +63,7 @@ module.exports = function(cb, dataSourceURL = 'http://www.tcmb.gov.tr/kurlar/tod
             return cb('Response code is: ' + response.statusCode, null);
         }
 
-        var xml = iconv.decode(body, 'ISO-8859-9');
+        var xml = iconv.decode(body, encoding);
 
         if (!xml || xml.search('Tarih_Date') === -1) {
             return cb('Invalid xml', null);
