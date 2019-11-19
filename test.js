@@ -5,18 +5,43 @@
  * Licensed under the MIT License.
  */
 
-'use strict';
+"use strict";
 
-var tcbmDovizKuru = require('./');
+var tcbmDovizKuru = require("./");
 
-function cb(error, data) {
-    if (error) {
-        console.log('error', error)
-    }
-    console.log(JSON.stringify(data));
-}
+const runTests = async () => {
+  try {
+    const test1 = await tcbmDovizKuru.today();
+    console.log("Test today(): ");
+    console.log("");
+    console.log(JSON.stringify(test1));
+    console.log("--------------------");
+    const test2 = await tcbmDovizKuru.today("USD");
+    console.log("Test today('USD'): ");
+    console.log("");
+    console.log(JSON.stringify(test2));
+    console.log("--------------------");
+    const test4 = await tcbmDovizKuru.date(null);
+    console.log("Test date(null): ");
+    console.log("");
+    console.log(JSON.stringify(test4));
+    console.log("--------------------");
+    const test5 = await tcbmDovizKuru.date("18/11/2019");
+    console.log("Test date('18/11/2019'): ");
+    console.log("");
+    console.log(JSON.stringify(test5));
+    console.log("--------------------");
+    const test6 = await tcbmDovizKuru.date("18/11/2019", "GBP");
+    console.log("Test date('18/11/2019', 'USD'): ");
+    console.log("");
+    console.log(JSON.stringify(test6));
+    console.log("--------------------");
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-tcbmDovizKuru(cb);
+runTests();
 
 // FIXME
 // describe('tcbmDovizKuru', function () {
