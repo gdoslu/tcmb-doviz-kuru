@@ -1,42 +1,30 @@
 {
-  "name": "tcmb-doviz-kuru",
-  "version": "2.0.4",
-  "description": "Get Indicative Exchange Rates Announced by the Central Bank of Turkey",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gdoslu/tcmb-doviz-kuru.git"
-  },
-  "keywords": [
-    "exchange",
-    "currency",
-    "doviz",
-    "kuru",
-    "merkez",
-    "bankasi",
-    "dollar",
-    "dolar",
-    "euro",
-    "turk",
-    "lirasi",
-    "turkish",
-    "lira"
+  "name": "tcmb-doviz-kuru-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/tcmb-doviz-kuru",
+    "packages/tcmb-doviz-kuru-mcp"
   ],
-  "dependencies": {
-    "iconv-lite": "^0.4.15",
-    "request": "^2.75.0",
-    "xml2js": "^0.4.17"
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "typecheck": "npm run build -w tcmb-doviz-kuru && tsc",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "npm run build -w tcmb-doviz-kuru && npm test --workspaces",
+    "coverage": "npm run build -w tcmb-doviz-kuru && npm run coverage --workspaces --if-present"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100
   },
   "devDependencies": {
-    "mocha": "~3.1.2"
-  },
-  "author": "gdoslu",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gdoslu/tcmb-doviz-kuru/issues"
-  },
-  "homepage": "https://github.com/gdoslu/tcmb-doviz-kuru#readme"
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.5",
+    "eslint": "^10.12.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.9",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.1"
+  }
 }

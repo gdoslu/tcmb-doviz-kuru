@@ -1,0 +1,50 @@
+{
+  "name": "tcmb-doviz-kuru-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for the indicative exchange rates announced by the Central Bank of Turkey (TCMB)",
+  "type": "module",
+  "bin": {
+    "tcmb-doviz-kuru-mcp": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "node --test test/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdoslu/tcmb-doviz-kuru.git",
+    "directory": "packages/tcmb-doviz-kuru-mcp"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "exchange",
+    "currency",
+    "doviz",
+    "kuru",
+    "tcmb",
+    "turkish",
+    "lira"
+  ],
+  "author": "gdoslu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gdoslu/tcmb-doviz-kuru/issues"
+  },
+  "homepage": "https://github.com/gdoslu/tcmb-doviz-kuru/tree/master/packages/tcmb-doviz-kuru-mcp#readme",
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.1",
+    "tcmb-doviz-kuru": "^3.0.0",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "^2.3.1"
+  }
+}
