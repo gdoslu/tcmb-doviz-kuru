@@ -1,10 +1,10 @@
 {
   "name": "tcmb-doviz-kuru",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "Get Indicative Exchange Rates Announced by the Central Bank of Turkey",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -27,11 +27,7 @@
   ],
   "dependencies": {
     "iconv-lite": "^0.4.15",
-    "request": "^2.75.0",
-    "xml2js": "^0.4.17"
-  },
-  "devDependencies": {
-    "mocha": "~3.1.2"
+    "xml2js": "^0.6.2"
   },
   "author": "gdoslu",
   "license": "MIT",
