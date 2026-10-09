@@ -1,0 +1,59 @@
+{
+  "name": "tcmb-doviz-kuru",
+  "version": "3.0.0",
+  "description": "Get Indicative Exchange Rates Announced by the Central Bank of Turkey",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "node --test test/*.test.ts",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-exclude='test/**' --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 test/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdoslu/tcmb-doviz-kuru.git",
+    "directory": "packages/tcmb-doviz-kuru"
+  },
+  "keywords": [
+    "exchange",
+    "currency",
+    "doviz",
+    "kuru",
+    "merkez",
+    "bankasi",
+    "tcmb",
+    "dollar",
+    "dolar",
+    "euro",
+    "turk",
+    "lirasi",
+    "turkish",
+    "lira"
+  ],
+  "author": "gdoslu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gdoslu/tcmb-doviz-kuru/issues"
+  },
+  "homepage": "https://github.com/gdoslu/tcmb-doviz-kuru#readme",
+  "dependencies": {
+    "fast-xml-parser": "^5.11.2"
+  }
+}
